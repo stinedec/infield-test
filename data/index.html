@@ -1,17 +1,12 @@
 ---
-layout: page.html
-title: Static site demo using Metalsmith + Nunjucks
+layout: default.html
+title: Front end development test for Infield Digital
 permalink: false
 ---
-
-<section>
-  <h2>Example content</h2>
-  <p>Content borrowed from <a href="https://github.com/voorhoede/interview-exercise" target="_blank" rel="noopener">Interview exercise</a>.</p>
-  <ul>
-      {% for post in posts %}
-          <li><a href="{{ post.path }}">{{ post.title }}</a></li>
-      {% endfor %}
-  </ul>
-  <p>Layout borrowed from <a href="https://voorhoede.github.io/voorhoede-ocelot-formatter/" target="_blank" rel="noopener">Voorhoede Ocelot Formatter</a>.</p>
-</section> 
+{% from "components/profile-component.html" import profileComponent %}
+<div class="components">
+	{% for profile in profiles %}
+		{{ profileComponent(name=profile.name, description=profile.description, location=profile.location, url=profile.url, dateJoined=profile.dateJoined) }}
+	{% endfor %}
+</div> 
 

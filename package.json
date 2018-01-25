@@ -1,6 +1,6 @@
 {
-  "name": "demo-metalsmith-nunjucks",
-  "description": "Static site demo using Metalsmith + Nunjucks",
+  "name": "front-end-demo",
+  "description": "Front end development test for Infield Digital using Metalsmith + Nunjucks",
   "private": true,
   "version": "1.0.0",
   "main": "build.js",
@@ -15,7 +15,9 @@
     "start": "http-server 'build/' -c-1 -o -p 63825",
     "watch": "chokidar 'build.js' 'data/**' 'lib/**' 'src/**' --command 'node ./build.js'"
   },
-  "dependencies": {},
+  "dependencies": {
+    "metalsmith-sass": "^1.5.1"
+  },
   "devDependencies": {
     "chalk": "2.1.0",
     "chokidar-cli": "1.2.0",

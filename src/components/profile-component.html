@@ -1,0 +1,21 @@
+{% macro profileComponent(name, description, location, url, followUrl, dateJoined) %}
+<section class="profile-component">
+	<div class="inner-container">
+		<img class="profile-pic " src="infieldpic.png" alt="{{ name }}" />
+		<h1 class="profile-name">{{ name }}</h1>
+		<a class="follow-btn" href="{{ followUrl }}">Follow</a>
+		<h2 class="profile-description">{{ description }}</h2>
+		<ul class="profile-info">
+			<li class="info-item location">
+				{{ location }}
+			</li>
+			<li class="info-item url">
+				{{ url }}
+			</li>
+			<li class="info-item date-joined">
+				Joined {{ dateJoined }}
+			</li>
+		</ul>
+	</div>
+</section>
+{% endmacro %}

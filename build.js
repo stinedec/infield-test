@@ -3,12 +3,12 @@ const assets = require('metalsmith-assets')
 const chalk = require('chalk')
 const collections = require('metalsmith-collections')
 const inplace = require('metalsmith-in-place')
-const layoutByCollection = require('./lib/layout-by-collection')
 const layouts = require('metalsmith-layouts')
 const markdown = require('metalsmith-markdown')
 const metadata = require('metalsmith-metadata')
 const nunjucks = require('nunjucks')
 const permalinks = require('metalsmith-permalinks')
+const sass = require('metalsmith-sass')
 
 nunjucks.configure('src', {watch: false, noCache: true})
 
@@ -22,17 +22,14 @@ Metalsmith(__dirname)
     site:  'site.json'
   }))
   .use(collections({
-      posts: {
-        pattern: 'posts/**/*.md',
-        sortBy: 'date',
-        reverse: true
-      }}))
+      profiles: {
+        pattern: 'profiles/**/*.md',
+        sortBy: 'name'
+      }
+    }))
   .use(markdown())
   .use(permalinks({
     pattern: ':title'
-  }))
-  .use(layoutByCollection({
-    'posts': 'post.html'
   }))
   .use(inplace({
     engine: 'nunjucks',
@@ -42,6 +39,9 @@ Metalsmith(__dirname)
     engine: 'nunjucks',
     pattern: '**/*.html',
     directory: 'src/views'
+  }))
+  .use(sass({
+    outputDir: ''   // This changes the output dir to "build/" instead of "build/scss/"
   }))
   .build((err) => {
     if (err) {

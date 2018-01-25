@@ -1,8 +1,6 @@
-# Static site demo using Metalsmith + Nunjucks
+# Front end development test for Infield Digital using Metalsmith + Nunjucks
 
-This demo shows how [Metalsmith](http://www.metalsmith.io/) - a pluggable static site generator - can be used in combination with [Nunjucks](https://mozilla.github.io/nunjucks/) - a templating language and render engine in JavaScript.
-
-A live version is available on [`demo-metalsmith-nunjucks.now.sh`](https://demo-metalsmith-nunjucks.now.sh/).
+This demo uses Metalsmith and Nunjucks to demonstrate my skills in building reusable, pixel-perfect front end components.
 
 ## Setup
 
@@ -12,40 +10,24 @@ In [`build.js`](build.js) we configure how we want the static site to be generat
 The content and app source structure:
 
 ```
-build.js          <-- config for static site generator
+build.js              <-- config for static site generator
 
-data/             <-- example content
-  posts/          <-- a content collection
-  about.md        <-- content in Markdown format
-  index.html      <-- content in HTML format
-  site.json       <-- content in site.json
+data/                 <-- example content
+  profiles/           <-- collection of sample profile content
+  scss/               <-- build sass files
+  index.html          <-- content of index page
+  site.json           <-- site metadata
 
-src/              <-- app modules
-  components/     <-- reusable components
-  public/         <-- static public assets
-    index.min.css <-- example of static asset
-  views/          <-- layout files
-```
-
-After running `build.js` this results in:
-
-```
-build/
-  index.html
-  index.min.css
-  about/index.html
-  :post-name/index.html
+src/                  <-- app modules
+  components/         <-- reusable components
+    app-header        <-- simple sample reusable header
+    profile-component <-- the HTML for the reusable test component
+  public/             <-- static public assets
+  views/              <-- layout files
 ```
 
 ## Scripts
 
 Development requires [Node.js](http://nodejs.org/) and [npm](https://npmjs.org/) (comes with Node.js).
 
-After installing dependencies using `npm install` the following scripts are available:
-
-`npm run ...` | Description
----|---
-`build` | Builds entire app to `build/`.
-`deploy` | Deploys app to unique URL and aliases it from [`demo-metalsmith-nunjucks.now.sh`](https://demo-metalsmith-nunjucks.now.sh/).
-`start` | Serves app on `http://localhost:63825` ("Metal" in T9).
-`watch` | Watches all files and rebuilds app on changes.
+After installing dependencies using `npm install` run `node build` to generate static files. Resulting files will be found in the `build` folder. Open `build/index.html` to view site.

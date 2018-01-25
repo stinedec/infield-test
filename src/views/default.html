@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>{{ title }} | {{ site.title }}</title>
-    <link rel="stylesheet" href="{{ site.base_url }}index.min.css">
+    <link rel="stylesheet" href="main.css">
     <style>img { max-width: 100%; }</style>
   </head>
   <body>
@@ -12,7 +12,7 @@
       {% block body %}
         {{ contents | safe }}
       {% endblock %}
-    </main>   
-    {% include 'components/app-footer.html' %}
+    </main>
+    <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
